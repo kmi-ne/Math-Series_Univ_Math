@@ -1,0 +1,15 @@
+{
+    // VSCode
+    "workbench.editor.customLabels.patterns": {
+        "**/*.tex": "${dirname}/${filename}.${extname}",
+    },
+    // 拡張機能
+    // LaTeX Workshop
+    "latex-workshop.latex.outDir": "pdf",
+    // Material Icon Theme
+    "material-icon-theme.folders.associations": {
+        "_bib": "Bibliography",
+        "_config_local": "Config",
+        "_sample_project": "Examples",
+    }
+}
