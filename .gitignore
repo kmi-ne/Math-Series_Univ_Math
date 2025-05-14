@@ -1,0 +1,34 @@
+# 一旦全てを無視
+*
+
+# 全フォルダを監視
+!*/
+
+# 以下を監視
+
+# Git
+!.gitattributes
+!.gitignore
+
+# VS Code
+!*.code-snippets
+!*.json
+
+# TeX
+!*.bib
+!.latexmkrc
+!*.pdf
+!*.sty
+!*.tex
+
+# 画像
+!*.jpeg
+!*.png
+!*.svg
+
+# 文書
+!*.md
+
+# スクリプト
+!*.py
+!*.sh
