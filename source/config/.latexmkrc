@@ -12,9 +12,9 @@ my $project_name = basename($parent_path);
 # pdf を命名
 # 下位プロジェクト名が main の場合は接尾辞を省略
 if ($subproject_name eq 'main') {
-    $jobname = $project_name;
+    $jobname = "series_univ_math-${project_name}";
 } else {
-    $jobname = "${project_name}-${subproject_name}";
+    $jobname = "series_univ_math-${project_name}-${subproject_name}";
 }
 
 # main.tex からルートディレクトリへの相対パス
