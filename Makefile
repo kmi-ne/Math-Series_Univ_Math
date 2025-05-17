@@ -38,6 +38,7 @@ $(PROJECTS):
 	cd ../../../..
 
 # 各サブプロジェクトのルール
+# $@ = <プロジェクト名>-<サブプロジェクト名> のハイフンをスペースに置き換え，2語に分離してパスにする
 $(SUB_PROJECTS):
 	cd source/project/$(word 1,$(subst -, ,$@))/$(word 2,$(subst -, ,$@)) && \
 	latexmk -norc -r .latexmkrc -lualatex main && \
