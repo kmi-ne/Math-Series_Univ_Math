@@ -8,8 +8,8 @@
     "latex-workshop.latex.outDir": "pdf",
     // Material Icon Theme
     "material-icon-theme.folders.associations": {
-        "_bib": "Bibliography",
-        "_config_local": "Config",
+        "bib": "Bibliography",
+        "_package_local": "Packages",
         "_sample_project": "Examples",
-    }
+    },
 }
