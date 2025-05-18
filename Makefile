@@ -6,30 +6,22 @@
 
 .PHONY: $(PROJECTS) $(SUB_PROJECTS)
 
-# サブプロジェクトを検索してそのリストを返す関数
-# ただし1文字目が_の場合は除外
+# プロジェクト内のサブプロジェクトを検索して，ルートからのパスのリストを返す関数
+# 1文字目が_の場合はサブプロジェクトではないとし，除外する
+# $1: プロジェクト名
 find_sub_projects = $(wildcard source/project/$1/[^_]*)
-# def find_sub_projects($1):
-# 	return [source/project/$1/*]
-# Ex. find_sub_projects(_sample_project)
-# 	→ ["source/project/_sample_project/main", "source/project/_sample_project/sub"]
+# Ex. $(call find_sub_projects _sample_project)
+# 	→ source/project/_sample_project/main source/project/_sample_project/sub
 
 # 全プロジェクトのリスト
 PROJECTS := $(foreach dir,$(wildcard source/project/*),$(notdir $(dir)))
-# PROJECTS = [
-# 	notdir(dir)
-# 	for dir in [source/project/*]
-# ]
-# Ex. PROJECTS → ["_sample_project", "01_logic"]
+# Ex. $PROJECTS
+# 	→ _sample_project 01_logic
 
 # 全サブプロジェクトのリスト
 SUB_PROJECTS := $(foreach proj,$(PROJECTS),$(foreach dir,$(call find_sub_projects,$(proj)),$(proj)-$(notdir $(dir))))
-# SUB_PROJECTS = [
-# 	proj + "-" + notdir(dir)
-# 	for proj in PROJECTS
-# 	for dir in find_sub_projects(proj)
-# ]
-# Ex. SUB_PROJECTS → ["_sample_project-main", "_sample_project-sub", "01_logic-main"]
+# Ex. $SUB_PROJECTS
+# 	→ _sample_project-main _sample_project-sub 01_logic-main
 
 # 各プロジェクトのルール
 $(PROJECTS):
