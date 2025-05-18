@@ -1,0 +1,18 @@
+% main.tex から package までの相対パス
+\NewDocumentCommand{\um@パッケージ場所}{}{../../../package}
+
+\DeclareKeys[um@config]{
+  スタイル.store = \um@スタイル,
+  数式スタイル.store = \um@数式スタイル,
+  % 索引を出力.if = 索引を出力,
+}
+
+\SetKeys[um@config]{
+  スタイル = draft,
+}
+
+\ProcessKeyOptions[um@config]
+
+
+% スタイル読み込み
+\usepackage{\um@パッケージ場所/univmath_\um@スタイル}
