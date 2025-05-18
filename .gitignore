@@ -37,4 +37,4 @@
 !Makefile
 
 # その他
-!empty
+!.gitkeep
