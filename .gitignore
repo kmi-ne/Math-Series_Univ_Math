@@ -9,6 +9,7 @@
 # Git
 !.gitattributes
 !.gitignore
+!.gitkeep
 
 # VS Code
 !*.code-snippets
@@ -26,15 +27,14 @@
 !*.png
 !*.svg
 
-# 文書
+# 文書（一部除外）
 !*.md
+*_private.md
 
 # スクリプト
+!*.exe
+!*.go
 !*.py
-!*.sh
 
 # Makefile
 !Makefile
-
-# その他
-!.gitkeep
