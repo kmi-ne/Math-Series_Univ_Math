@@ -5,22 +5,25 @@
 \NewDocumentCommand{\um@パッケージフォルダ}{}{\um@ソースフォルダ/package}
 
 
+% パッケージオプション定義
 \DeclareKeys[um@config]{
   スタイル.store = \um@スタイル,
   数式スタイル.store = \um@数式スタイル,
   % 索引を出力.if = 索引を出力,
 }
 
+% パッケージオプションのデフォルト値
 \SetKeys[um@config]{
   スタイル = draft,
 }
 
+% パッケージオプション読み込み
 \ProcessKeyOptions[um@config]
 
 
 % スタイル読み込み
-\usepackage{\um@パッケージ場所/univmath_\um@スタイル}
+\usepackage{\um@パッケージフォルダ/univmath_\um@スタイル}
 
 % マクロ読み込み
-\usepackage{\um@パッケージ場所/macro}
+\usepackage{\um@パッケージフォルダ/macro}
 \usepackage{../_package_local/macro_local}
