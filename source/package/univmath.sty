@@ -1,5 +1,9 @@
-% main.tex から package までの相対パス
-\NewDocumentCommand{\um@パッケージ場所}{}{../../../package}
+% main.tex からの相対パス
+\NewDocumentCommand{\um@ルートフォルダ}{}{../../../..}
+\NewDocumentCommand{\um@ソースフォルダ}{}{../../../}
+\NewDocumentCommand{\um@コモンフォルダ}{}{\um@ソースフォルダ/common}
+\NewDocumentCommand{\um@パッケージフォルダ}{}{\um@ソースフォルダ/package}
+
 
 \DeclareKeys[um@config]{
   スタイル.store = \um@スタイル,
