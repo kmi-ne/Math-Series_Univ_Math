@@ -23,8 +23,9 @@ my $root_dir = '../../../..';
 # 出力ディレクトリ
 $out_dir = "${root_dir}/pdf/${project_name}";
 
-# LuaLaTeX
+# エンジン
 $lualatex = 'lualatex %O -halt-on-error -file-line-error %S';
+$xelatex = 'xelatex %O -halt-on-error -file-line-error %S';
 
 # 索引
 $makeindex = 'upmendex -s jpbase -l %O -o %D %S';
