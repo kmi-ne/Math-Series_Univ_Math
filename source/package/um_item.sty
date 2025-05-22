@@ -1,0 +1,24 @@
+% \Item[#1](#2)"#3"
+% 番号と名前で参照可能なアイテム
+
+\NewDocumentCommand{\Item}{
+  !O{}    % #1: タイトル（description 環境限定）
+  !D(){}  % #2: ラベル
+  !D""{}  % #3: 名前参照時に表示するテキスト
+}{%
+  \IfBlankTF{#1}{%
+    \item
+    \IfBlankF{#3}{%
+      \ztitlerefsetup{title={#3}}%
+    }
+    #2
+  }{%
+    \item[#1]
+    \IfBlankTF{#3}{%
+      \ztitlerefsetup{title={#1}}%
+    }{%
+      \ztitlerefsetup{title={#3}}%
+    }
+    #2%
+  }%
+}
