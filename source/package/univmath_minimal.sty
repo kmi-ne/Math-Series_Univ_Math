@@ -18,6 +18,11 @@
 \usepackage[\um@数式スタイル]{unicode-math}
 \setmathfont{NewCMMath-Regular.otf}
 
+\DeclareEmphSequence{\sffamily}
+\DeclareDocumentCommand{\strong}{m}{{\sffamily\bfseries #1}}
+
+\NewDocumentCommand{\soCalled}{m}{``#1''}
+
 \usepackage{zref-clever}
 \usepackage{zref-titleref}
 
