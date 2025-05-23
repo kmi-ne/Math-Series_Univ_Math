@@ -28,6 +28,14 @@
 
 \usepackage{\um@パッケージフォルダ/um_item}
 
+\NewDocumentCommand{\term}{
+  s     % #1: あれば索引に載せない
+  m     % #2: 語
+  D""{} % #3: よみがな
+  D(){} % #4: 英訳
+  O{}   % #5: key-val
+}{\emph{#2}（#4）}
+
 \usepackage{zref-clever}
 \usepackage{zref-titleref}
 
