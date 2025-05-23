@@ -1,3 +1,9 @@
+\usepackage{ifdraft}
+
+\ifoptiondraft{}{
+  \PackageError{univmath_minimal}{クラスオプション draft を指定してください．}{}
+}
+
 \usepackage{iftex}
 
 \ifluatex
