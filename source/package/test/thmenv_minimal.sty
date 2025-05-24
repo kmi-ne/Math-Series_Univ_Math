@@ -1,0 +1,24 @@
+\newcounter{um@c@定理番号}
+\setcounter{um@c@定理番号}{0}
+\NewDocumentCommand{\un@newTheorem}{
+  s   % #1: あれば番号を付けない
+  m   % #2: 表示する名前
+  m   % #3: 環境名
+  }{
+  \NewDocumentEnvironment{#3}{}{%
+    \par
+    \addvspace{\baselineskip}
+    \IfBooleanF{#1}{\stepcounter{um@c@定理番号}}
+    \noindent
+    \strong{%
+      #2%
+      \IfBooleanF{#1}{\arabic{chapter}.\arabic{um@c@定理番号}}%
+    }%
+    \hspace{1em}%
+  }{%
+    \addvspace{\baselineskip}
+    \par
+  }
+}
+\um@newTheorem{規約}{rgl}
+\um@newTheorem*{解説}{expl}
