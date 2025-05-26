@@ -27,9 +27,8 @@
 !*.png
 !*.svg
 
-# 文書（一部除外）
+# 文書
 !*.md
-*_private.md
 
 # スクリプト
 !*.exe
@@ -38,3 +37,7 @@
 
 # Makefile
 !Makefile
+
+# 以下を無視
+private
+*_private.*
