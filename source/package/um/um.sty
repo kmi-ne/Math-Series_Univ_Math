@@ -23,8 +23,10 @@
 
 
 % スタイル読み込み
-\usepackage{\um@パッケージフォルダ/univmath_\um@スタイル}
+\usepackage{\um@パッケージフォルダ/um_\um@スタイル}
 
 % マクロ読み込み
-\usepackage{\um@パッケージフォルダ/macro}
-\usepackage{../_package_local/macro_local}
+\usepackage{\um@パッケージフォルダ/um_macro}
+
+% パッチ読み込み
+\usepackage{../um_local_patch}
