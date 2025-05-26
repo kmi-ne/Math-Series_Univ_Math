@@ -10,15 +10,15 @@
     \item
     \IfBlankF{#3}{%
       \ztitlerefsetup{title={#3}}%
-    }
-    #2
+    }%
+    #2%
   }{%
-    \item[#1]
+    \item[#1]%
     \IfBlankTF{#3}{%
       \ztitlerefsetup{title={#1}}%
     }{%
       \ztitlerefsetup{title={#3}}%
-    }
+    }%
     #2%
   }%
 }
