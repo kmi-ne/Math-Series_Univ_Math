@@ -1,0 +1,49 @@
+\documentclass{ltjsarticle}
+
+\usepackage{hyperref}
+\usepackage{../um_item}
+
+\begin{document}
+
+\setcounter{section}{41}
+\section{セクション名}
+
+\begin{enumerate}
+  \umitem \verb|\umitem|
+  \umitem(\umlabel{2nd})
+    \verb|\umitem(\umlabel{2nd})|
+  \umitem(\umlabel{3rd})"その3"
+    \verb|\umitem(\umlabel{3rd})"その3" \umlabel{aaa}|
+    \umlabel{aaa}
+\end{enumerate}
+
+\umlabel{bbb}← ここに\verb|\umlabel{bbb}|
+
+\verb|\umref{2nd}|: \umref{2nd}, \verb|\umref{3rd}|: \umref{3rd}
+
+\verb|\umtitleref{3rd}|: \umtitleref{3rd}
+
+\verb|\umref{aaa}|: \umref{aaa}, \verb|\umtitleref{aaa}|: \umtitleref{aaa}
+
+\verb|\umref{bbb}|: \umref{bbb}, \verb|\umtitleref{bbb}|: \umtitleref{bbb}
+
+\begin{description}
+  \umitem[1番目] \verb|\umitem[1番目]|
+  \umitem[2番目](\umlabel{2nd_d})
+    \verb|\umitem[2番目](\umlabel{2nd_d})|
+  \umitem[3番目](\umlabel{3rd_d})"説明その3"
+    \verb|\umitem[3番目](\umlabel{3rd_d})"説明その3" \umlabel{ccc}|
+    \umlabel{ccc}
+\end{description}
+
+\umlabel{ddd}← ここに\verb|\umlabel{ddd}|
+
+\verb|\umtitleref{2nd_d}|: \umtitleref{2nd_d}
+
+\verb|\umtitleref{3rd_d}|: \umtitleref{3rd_d}
+
+\verb|\umref{ccc}|: \umref{ccc}, \verb|\umtitleref{ccc}|: \umtitleref{ccc}
+
+\verb|\umref{ddd}|: \umref{ddd}, \verb|\umtitleref{ddd}|: \umtitleref{ddd}
+
+\end{document}
