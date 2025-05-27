@@ -42,13 +42,36 @@ func main() {
 		}
 		initProject(os.Args[2])
 	case "make":
-		if len(os.Args) != 3 {
-			fmt.Println("使い方: um make <プロジェクト名> または um make <プロジェクト名>-<サブプロジェクト名>")
+		engine := "lualatex"
+		argIndex := 2
+
+		if len(os.Args) >= 3 {
+			if os.Args[2] == "-xe" {
+				engine = "xelatex"
+				argIndex = 3
+			} else if os.Args[2] == "-lua" {
+				engine = "lualatex"
+				argIndex = 3
+			}
+		}
+
+		if len(os.Args) <= argIndex {
+			fmt.Println("使い方: um make [-lua|-xe] <プロジェクト名>")
 			return
 		}
-		makeProject(os.Args[2])
+		makeProject(os.Args[argIndex], engine)
+
 	case "makeall":
-		makeAll()
+		engine := "lualatex"
+		if len(os.Args) >= 3 {
+			if os.Args[2] == "-xe" {
+				engine = "xelatex"
+			} else if os.Args[2] == "-lua" {
+				engine = "lualatex"
+			}
+		}
+		makeAll(engine)
+
 	default:
 		fmt.Println("不明なコマンド:", os.Args[1])
 	}
@@ -66,7 +89,7 @@ func initProject(projectName string) {
 	fmt.Println("プロジェクトを初期化しました:", dst)
 }
 
-func makeProject(name string) {
+func makeProject(name, engine string) {
 	var path string
 	if strings.Contains(name, "-") {
 		parts := strings.SplitN(name, "-", 2)
@@ -79,12 +102,12 @@ func makeProject(name string) {
 		path = filepath.Join(basePath, name, "main")
 	}
 
-	if err := runLatexMk(path); err != nil {
+	if err := runLatexMk(path, engine); err != nil {
 		fmt.Println("ビルド失敗:", err)
 	}
 }
 
-func makeAll() {
+func makeAll(engine string) {
 	entries, err := os.ReadDir(basePath)
 	if err != nil {
 		fmt.Println("ディレクトリの読み込みに失敗:", err)
@@ -96,7 +119,7 @@ func makeAll() {
 			path := filepath.Join(basePath, entry.Name(), "main")
 			if _, err := os.Stat(filepath.Join(path, "main.tex")); err == nil {
 				fmt.Println("ビルド中:", path)
-				if err := runLatexMk(path); err != nil {
+				if err := runLatexMk(path, engine); err != nil {
 					fmt.Println("ビルド失敗:", err)
 				}
 			}
@@ -104,8 +127,8 @@ func makeAll() {
 	}
 }
 
-func runLatexMk(dir string) error {
-	cmd := exec.Command("latexmk", "-norc", "-r", ".latexmkrc", "-lualatex", "main")
+func runLatexMk(dir, engine string) error {
+	cmd := exec.Command("latexmk", "-norc", "-r", ".latexmkrc", "-"+engine, "main")
 	cmd.Dir = dir
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
