@@ -11,8 +11,10 @@
 \else\fi
 
 \ifxetex
-  \usepackage{xeCJK}
-  \usepackage[haranoaji]{zxjafont}
+  \@ifclassloaded{report}{
+    \usepackage{xeCJK}
+    \usepackage[haranoaji]{zxjafont}
+  }{}
 \else\fi
 
 \usepackage[\um@数式スタイル]{unicode-math}
