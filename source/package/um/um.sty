@@ -2,11 +2,13 @@
 \NewDocumentCommand{\um@ルートフォルダ}{}{../../../..}
 \NewDocumentCommand{\um@ソースフォルダ}{}{../../..}
 \NewDocumentCommand{\um@プロジェクトフォルダ}{}{../..}
+\NewDocumentCommand{\um@サブプロジェクトフォルダ}{}{..}
+
 \NewDocumentCommand{\um@コモンフォルダ}{}{\um@ソースフォルダ/common}
 \NewDocumentCommand{\コモンフォルダ}{}{\um@コモンフォルダ}
 \NewDocumentCommand{\um@パッケージフォルダ}{}{\um@ソースフォルダ/package}
 \NewDocumentCommand{\パッケージフォルダ}{}{\um@パッケージフォルダ}
-\NewDocumentCommand{\um@ローカルパッケージフォルダ}{}{\um@プロジェクトフォルダ/_package_local}
+\NewDocumentCommand{\um@ローカルパッケージフォルダ}{}{\um@サブプロジェクトフォルダ/_package_local}
 \NewDocumentCommand{\ローカルパッケージフォルダ}{}{\um@ローカルパッケージフォルダ}
 
 
