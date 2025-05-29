@@ -1,16 +1,19 @@
 % main.tex からの相対パス
 \NewDocumentCommand{\um@ルートフォルダ}{}{../../../..}
 \NewDocumentCommand{\um@ソースフォルダ}{}{../../..}
+\NewDocumentCommand{\um@プロジェクトフォルダ}{}{../..}
 \NewDocumentCommand{\um@コモンフォルダ}{}{\um@ソースフォルダ/common}
 \NewDocumentCommand{\コモンフォルダ}{}{\um@コモンフォルダ}
 \NewDocumentCommand{\um@パッケージフォルダ}{}{\um@ソースフォルダ/package}
+\NewDocumentCommand{\パッケージフォルダ}{}{\um@パッケージフォルダ}
+\NewDocumentCommand{\um@ローカルパッケージフォルダ}{}{\um@プロジェクトフォルダ/_package_local}
+\NewDocumentCommand{\ローカルパッケージフォルダ}{}{\um@ローカルパッケージフォルダ}
 
 
 % パッケージオプション定義
 \DeclareKeys[um@config]{
   スタイル.store = \um@スタイル,
   数式スタイル.store = \um@数式スタイル,
-  % 索引を出力.if = 索引を出力,
 }
 
 % パッケージオプションのデフォルト値
@@ -30,4 +33,4 @@
 \usepackage{\um@パッケージフォルダ/um_macro/um_macro}
 
 % パッチ読み込み
-\usepackage{../_package_local/um_patch}
+\usepackage{\um@ローカルパッケージフォルダ/um_patch}
