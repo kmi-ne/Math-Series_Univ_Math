@@ -7,7 +7,9 @@
 \usepackage{iftex}
 
 \ifluatex
-  \usepackage{luatexja}
+  \@ifclassloaded{report}{
+    \usepackage{luatexja}
+  }{}
 \else\fi
 
 \ifxetex
